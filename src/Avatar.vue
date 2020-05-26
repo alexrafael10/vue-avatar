@@ -2,9 +2,11 @@
   <div class="vue-avatar--wrapper" :style="[style, customStyle]" aria-hidden="true">
     <!-- this img is not displayed; it is used to detect failure-to-load of div background image -->
     <img v-if="this.isImage" style="display: none" :src="this.src" @error="onImgError"></img>
-    <slot v-show="!this.isImage">
-      <span>{{ userInitial }}</span>
-    </slot>
+    <span v-show="!this.isImage">
+      <slot>
+        {{ userInitial }}
+      </slot>
+    </span>
   </div>
 </template>
 
